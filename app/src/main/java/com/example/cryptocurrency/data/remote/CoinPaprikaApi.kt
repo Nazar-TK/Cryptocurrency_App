@@ -11,7 +11,7 @@ interface CoinPaprikaApi {
     suspend fun getCoins(): List<CoinDto>
 
     @GET("/v1/coins/{coinId}")
-    suspend fun getCoinById(@Path("coinID") coinId: String) : CoinDetailsDto
+    suspend fun getCoinById(@Path("coinId") coinId: String) : CoinDetailsDto
 
     companion object {
         const val BASE_URL = "https://api.coinpaprika.com/"

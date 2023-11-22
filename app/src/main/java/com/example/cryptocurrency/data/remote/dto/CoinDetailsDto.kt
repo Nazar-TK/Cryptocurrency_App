@@ -37,7 +37,7 @@ data class CoinDetailsDto(
     @SerializedName("started_at")
     val startedAt: String,
     val symbol: String,
-    val tags: List<Tag>,
+    val tags: List<Tag>?,
     val team: List<TeamMember>,
     val type: String,
     val whitepaper: Whitepaper
@@ -50,7 +50,7 @@ data class CoinDetailsDto(
             isActive = isActive,
             rank = rank,
             symbol = symbol,
-            tags = tags.map { it.name },
+            tags = if(tags.isNullOrEmpty()) emptyList() else tags.map { it.name },
             team = team
         )
     }
